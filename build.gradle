@@ -1,14 +1,14 @@
 plugins {
     id 'java'
-    id 'application'
+//    id 'application'
 }
 
-group = 'org.example'
+//group = 'org.example'
 version = '1.0-SNAPSHOT'
 
-application{
-    mainClass.set('org.example.Main')
-}
+//application{
+//    mainClass.set('Main')
+//}
 
 repositories {
     mavenCentral()
@@ -21,6 +21,10 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+tasks.withType(JavaExec).configureEach {
+    jvmArgs += "--enable-native-access=ALL-UNNAMED"
 }
 
 project.ext.lwjglVersion = "3.3.6"
